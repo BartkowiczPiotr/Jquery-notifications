@@ -1,0 +1,122 @@
+#ms-notyfication-area{
+	position: fixed;
+	right: 10px;
+	bottom: 0px;
+	width: 20%;
+	min-width: 300px;
+	z-index: 100;
+}
+
+.ms-notyfication{
+	position: relative;
+	float:right;
+	margin-bottom: 10px;
+	width: 100%;
+	box-shadow: rgba(0,0,0,.2) 0 10px 15px 0px;
+	background: #fff;
+}
+
+.ms-notyfication-body{
+	position: relative;
+	width: 100%;
+	float: left;
+}
+
+.ms-notyfication-body span{
+	position: absolute;
+	right: 10px;	
+	top: 5px;	
+	cursor: pointer;	
+	padding: 5px;
+	z-index: 2;
+	color:#898989;
+}
+.close-ms-notyfication:hover{
+	color:#c34d4d;
+	transition-duration: 0.2s;
+}
+
+.ms-notyfication-icon{
+	position: absolute;
+	float: left;
+	width: 20%;
+	text-align: center;
+	height: 100%;
+}
+
+.ms-notyfication-icon span{
+	width: 100%;
+	left: 0px;	
+	padding: 0px;	
+	margin-top: -10px;	
+	top: 50%;	
+	cursor: default;
+}
+
+.ms-notyfication-icon span i, .ms-label-icon span i{
+	font-size: 24px;
+}
+
+.ms-notyfication-text{
+	position: relative;
+	width: 80%;
+	float: right;
+	border-left: 1px #d2d2d2 solid;
+	padding: 15px 0px;
+}
+
+.ms-notyfication-message{
+	width: 90%;
+	float: left;
+	padding: 0px 5%;
+}
+
+#ms-label-area{
+	width: 40%;
+	margin: 0 auto;
+}
+
+.ms-label{
+	width: 100%;
+	float: left;	
+	position: relative;	
+	border-radius: 5px;	
+}
+
+.ms-label-icon, .ms-label-close{
+	width: 10%;
+	float: left;
+	position: absolute;
+	height: 100%;
+	color: #fff;
+}
+
+.ms-label-close{
+	right:0px;
+}
+
+.ms-label-icon span, .ms-label-close span{
+	width: 100%;
+	left: 0px;	
+	text-align: center;	
+	top: 50%;	
+	margin-top: -12px;	
+	position: absolute;	
+}
+
+.ms-label-close span i{
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.ms-label-text{
+	position: relative;
+	float: right;	
+	width: 90%;	
+}
+
+.ms-label-text p{
+	width: 95%;
+	text-align: left;
+	color: #fff;
+}

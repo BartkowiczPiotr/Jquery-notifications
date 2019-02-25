@@ -120,3 +120,12 @@
 	text-align: left;
 	color: #fff;
 }
+
+@media screen and (max-width: 600px) {
+	#ms-notyfication-area{
+		top:0px;
+		left:0px;
+		width: 100%;
+		max-height:100px;
+	}
+  }

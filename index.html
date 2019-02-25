@@ -27,7 +27,7 @@
 				message: 'This is error notyfication. Please contact with <a href="">Help center</a>'
 			});
 
-			message.ShowMessage();
+			message.showMessage();
 			
 	});	
 
@@ -39,34 +39,9 @@
 				message: "This is success notyfication! Congratulations"
 			});
 
-			message.ShowMessage();
+			message.showMessage();
 			
 	});
-
-	$(document).on('click', '#success-label', function(){
-		
-		var message = new MessageSystem({
-				mode : "label",
-				type : "success",
-				message: "This is success label! Congratulations"
-			});
-
-			message.ShowMessage();
-			
-	});
-
-	$(document).on('click', '#error-label', function(){
-		
-		var message = new MessageSystem({
-				mode : "label",
-				type : "error",
-				message: "This is error label, try again"
-			});
-
-			message.ShowMessage();
-			
-	});
-
 
 </script>
 

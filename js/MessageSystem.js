@@ -1,93 +1,74 @@
-const MessageSystem = function(settings){
+class MessageSystem {
 
-	var options = {
-		mode : '',
-		type : '',
-		message: ''
+	constructor(settings){
+		
+		this.mode = settings.mode || "notyfication";
+		this.type = settings.type || "success";
+		this.message = settings.message || "";
+
 	}
 
-	var icon;
-	var color;
+	showMessage() {
 
-	this.construct = function(settings){
-		$.extend(options, settings);
-	}
-
-	this.ShowMessage = function(){
-
-		switch(options.mode){
+		switch(this.mode){
 			case 'label':
-				Label();
+				this.label();
 			break;
 			case 'notyfication':
-				Notyfication();
+				this.notyfication();
 			break;
 			default:
 				alert('Select mode of displayed message');
 		};
 
-	}
-	
-	const Label = function(){
-		
-		if(options.type=='success'){
-			icon = 'fas fa-check-circle';
-			color = '#71b200';
-		} else if (options.type =='error'){
-			icon = 'fas fa-exclamation-triangle';
-			color = '#c34d4d';
-		}
-		
-		$('.ms-label').remove();
-
-		var label = $(`
-		<div class="ms-label" style="background:${color}">
-			<div class="ms-label-icon">
-				<span><i class="${icon} fa-fw" aria-hidden="true"></i></span>
-			</div><div class="ms-label-text">
-				<p>${options.message}</p>
-			</div>
-			<div class="ms-label-close">
-				<span><i class="fas fa-times fa-fw" aria-hidden="true"></i></span>
-			</div>
-		</div>`);
-
-		$('#ms-label-area').append(label);
-		
 	};
 
-	const Notyfication = function(){
+	notyfication() {
+
+		let icon;
+		let color;
 		
-		if(options.type=='success'){
+		if(this.type=='success'){
 			icon = 'far fa-check-circle';
 			color = '#71b200';
-		} else if (options.type =='error'){
+		} else if (this.type =='error'){
 			icon = 'fas fa-exclamation-triangle';
 			color = '#c34d4d';
 		}
 
 		if($('#ms-notyfication-area').length === 0){
 
-			$(document.body).append('<div id="ms-notyfication-area"></div>');
+			const area = $(`<div id="ms-notyfication-area"></div>`);
+			$(document.body).append(area);
 
 		};
 
-		var notyfication = $(`<div class="ms-notyfication">
+		const notyfication = $(`<div class="ms-notyfication">
 			<div class="ms-notyfication-body">
 				<span class="close-ms-notyfication"><i class="fas fa-times fa-fw" aria-hidden="true"></i></span>
 				<div class="ms-notyfication-icon">
 					<span><i class=" ${icon} fa-fw" aria-hidden="true" style="color:${color}"></i></span>
 				</div>
 				<div class="ms-notyfication-text">
-					<p class="ms-notyfication-message">${options.message}</p>
+					<p class="ms-notyfication-message">${this.message}</p>
 				</div>
 			</div>
 		</div>`).hide();
 
-		$('#ms-notyfication-area').append(notyfication);
-		notyfication.fadeIn(200);
+		if($(window).width() < '600'){
+
+			$('.ms-notyfication').remove();
+			$('#ms-notyfication-area').append(notyfication);
+			notyfication.fadeIn(200);
+
+		}else{
+
+			$('#ms-notyfication-area').append(notyfication);
+			notyfication.fadeIn(200);
+
+		}
 		
-		setTimeout(function() {
+		setTimeout(() => {
 
 			notyfication.fadeOut(200, function(){
 
@@ -101,11 +82,9 @@ const MessageSystem = function(settings){
 
 			});
 
-		}, 8000);
+		}, 10000);
 
 	};
-
-	this.construct(settings);
 
 };
 

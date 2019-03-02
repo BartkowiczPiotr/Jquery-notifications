@@ -1,4 +1,4 @@
-#ms-notyfication-area{
+#ms-notification-area{
 	position: fixed;
 	right: 10px;
 	bottom: 0px;
@@ -7,22 +7,23 @@
 	z-index: 100;
 }
 
-.ms-notyfication{
-	position: relative;
-	float:right;
+.ms-notification{
+	display: flex;
+	position:relative;
+	justify-content: space-between;	
+	align-items: center;
 	margin-bottom: 10px;
 	width: 100%;
 	box-shadow: rgba(0,0,0,.2) 0 10px 15px 0px;
 	background: #fff;
 }
 
-.ms-notyfication-body{
-	position: relative;
-	width: 100%;
-	float: left;
+.ms-notification-body{
+	display:flex;
+	width:100%;
 }
 
-.ms-notyfication-body span{
+.ms-notification-body span{
 	position: absolute;
 	right: 10px;	
 	top: 5px;	
@@ -31,43 +32,45 @@
 	z-index: 2;
 	color:#898989;
 }
-.close-ms-notyfication:hover{
+.close-ms-notification:hover{
 	color:#c34d4d;
 	transition-duration: 0.2s;
 }
 
-.ms-notyfication-icon{
-	position: absolute;
-	float: left;
-	width: 20%;
-	text-align: center;
-	height: 100%;
+.ms-notification-icon{
+	top: 0px;
+	left: 0px;	
+	width: 20%;	
+	position: relative;	
+	text-align: center;	
+	display: flex;	
+	align-items: center;
 }
 
-.ms-notyfication-icon span{
+.ms-notification-icon span{
+	position:relative;
 	width: 100%;
-	left: 0px;	
+	top:0;
+	left: 0;	
 	padding: 0px;	
-	margin-top: -10px;	
-	top: 50%;	
 	cursor: default;
 }
 
-.ms-notyfication-icon span i, .ms-label-icon span i{
+.ms-notification-icon span i, .ms-label-icon span i{
 	font-size: 24px;
 }
 
-.ms-notyfication-text{
+.ms-notification-text{
+	top:0;
+	right:0;
 	position: relative;
 	width: 80%;
-	float: right;
 	border-left: 1px #d2d2d2 solid;
-	padding: 15px 0px;
+	padding: 35px 0px;
 }
 
-.ms-notyfication-message{
+.ms-notification-message{
 	width: 90%;
-	float: left;
 	padding: 0px 5%;
 }
 
@@ -122,7 +125,7 @@
 }
 
 @media screen and (max-width: 600px) {
-	#ms-notyfication-area{
+	#ms-notification-area{
 		top:0px;
 		left:0px;
 		width: 100%;

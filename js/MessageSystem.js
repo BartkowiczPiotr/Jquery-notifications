@@ -2,7 +2,7 @@ class MessageSystem {
 
 	constructor(settings){
 		
-		this.mode = settings.mode || "notyfication";
+		this.mode = settings.mode || "notification";
 		this.type = settings.type || "success";
 		this.message = settings.message || "";
 
@@ -14,8 +14,8 @@ class MessageSystem {
 			case 'label':
 				this.label();
 			break;
-			case 'notyfication':
-				this.notyfication();
+			case 'notification':
+				this.notification();
 			break;
 			default:
 				alert('Select mode of displayed message');
@@ -23,7 +23,7 @@ class MessageSystem {
 
 	};
 
-	notyfication() {
+	notification() {
 
 		let icon;
 		let color;
@@ -36,47 +36,47 @@ class MessageSystem {
 			color = '#c34d4d';
 		}
 
-		if($('#ms-notyfication-area').length === 0){
+		if($('#ms-notification-area').length === 0){
 
-			const area = $(`<div id="ms-notyfication-area"></div>`);
+			const area = $(`<div id="ms-notification-area"></div>`);
 			$(document.body).append(area);
 
 		};
 
-		const notyfication = $(`<div class="ms-notyfication">
-			<div class="ms-notyfication-body">
-				<span class="close-ms-notyfication"><i class="fas fa-times fa-fw" aria-hidden="true"></i></span>
-				<div class="ms-notyfication-icon">
+		const notification = $(`<div class="ms-notification">
+			<div class="ms-notification-body">
+				<span class="close-ms-notification"><i class="fas fa-times fa-fw" aria-hidden="true"></i></span>
+				<div class="ms-notification-icon">
 					<span><i class=" ${icon} fa-fw" aria-hidden="true" style="color:${color}"></i></span>
 				</div>
-				<div class="ms-notyfication-text">
-					<p class="ms-notyfication-message">${this.message}</p>
+				<div class="ms-notification-text">
+					<p class="ms-notification-message">${this.message}</p>
 				</div>
 			</div>
 		</div>`).hide();
 
 		if($(window).width() < '600'){
 
-			$('.ms-notyfication').remove();
-			$('#ms-notyfication-area').append(notyfication);
-			notyfication.fadeIn(200);
+			$('.ms-notification').remove();
+			$('#ms-notification-area').append(notification);
+			notification.fadeIn(200);
 
 		}else{
 
-			$('#ms-notyfication-area').append(notyfication);
-			notyfication.fadeIn(200);
+			$('#ms-notification-area').append(notification);
+			notification.fadeIn(200);
 
 		}
 		
 		setTimeout(() => {
 
-			notyfication.fadeOut(200, function(){
+			notification.fadeOut(200, function(){
 
 				$(this).remove();
 
-				if(!$('#ms-notyfication-area').html()){
+				if(!$('#ms-notification-area').html()){
 
-					$('#ms-notyfication-area').remove();
+					$('#ms-notification-area').remove();
 
 				}
 
@@ -88,9 +88,9 @@ class MessageSystem {
 
 };
 
-$(document).on('click', '.close-ms-notyfication', function(){
+$(document).on('click', '.close-ms-notification', function(){
 
-	$(this).parents('.ms-notyfication').fadeOut(200, function(){
+	$(this).parents('.ms-notification').fadeOut(200, function(){
 		$(this).remove();
 	});
 

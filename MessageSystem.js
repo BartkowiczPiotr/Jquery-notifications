@@ -1,29 +1,9 @@
-class MessageSystem {
+class MessageSystem{
 
-	constructor(settings){
-		
-		this.mode = settings.mode || "notification";
+	Notification(settings) {
+
 		this.type = settings.type || "success";
 		this.message = settings.message || "";
-
-	}
-
-	showMessage() {
-
-		switch(this.mode){
-			case 'label':
-				this.label();
-			break;
-			case 'notification':
-				this.notification();
-			break;
-			default:
-				alert('Select mode of displayed message');
-		};
-
-	};
-
-	notification() {
 
 		let icon;
 		let color;
@@ -101,3 +81,5 @@ $(document).on('click', '.ms-label-close', function(){
 	$(this).parents('.ms-label').remove();
 
 });
+
+const ms = new MessageSystem();
